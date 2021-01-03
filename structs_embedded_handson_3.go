@@ -37,10 +37,10 @@ func main() {
 	}
 
 	fmt.Println(truck1)
-  fmt.Println(truck1.doors)
+	fmt.Println(truck1.doors)
 	fmt.Println(truck1.fourWheel)
 
 	fmt.Println(car1)
-  fmt.Println(car1.doors)
+	fmt.Println(car1.doors)
 	fmt.Println(car1.luxury)
 }
