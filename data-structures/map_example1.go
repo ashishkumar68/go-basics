@@ -18,4 +18,11 @@ func main() {
     fmt.Println()
   }
 
+  // Add IST timezone
+  timezones["IN"] = "Asia/Kolkata"
+
+  fmt.Println(timezones)
+  for key, val := range timezones {
+    fmt.Println(key, val)
+  }
 }
