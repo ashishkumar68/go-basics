@@ -12,4 +12,7 @@ func main() {
   fmt.Println(slice)
   // skipping first 2 elements
   fmt.Println(slice[2:])
+  // remove 1, and 2th index elements
+  slice = append(slice[:1], slice[3:]...)
+  fmt.Println(slice)
 }
