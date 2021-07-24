@@ -10,4 +10,6 @@ func main() {
   slice = append(slice, appendSlice...)
 
   fmt.Println(slice)
+  // skipping first 2 elements
+  fmt.Println(slice[2:])
 }
