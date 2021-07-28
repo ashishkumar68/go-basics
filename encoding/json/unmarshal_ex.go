@@ -6,16 +6,17 @@ import (
 )
 
 type Person struct {
-  FirstName string
-  LastName string
-  Age int
+  FirstName string `json:"first_name"`
+  LastName string `json:"last_name"`
+  Age int `json:"age",omitempty`
 }
 
 func main() {
   serialisedBlob := []byte(`
     [
-    {"firstName":"John","lastName":"Smith","age":23},
-    {"firstName":"Kevin","lastName":"Smith","age":17}
+    {"first_name":"John","last_name":"Smith","age":23},
+    {"first_name":"Kevin","last_name":"Smith","age":17},
+    {"first_name":"John","last_name":"Doe"}
     ]
   `)
   persons := []Person{}
