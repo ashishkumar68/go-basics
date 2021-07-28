@@ -2,12 +2,13 @@ package main
 
 import (
   "fmt"
+  "encoding/json"
 )
 
 type Person struct {
-  firstName string
-  lastName string
-  age int
+  FirstName string
+  LastName string
+  Age int
 }
 
 type VoteEligibleCheck interface {
@@ -15,7 +16,7 @@ type VoteEligibleCheck interface {
 }
 
 func (person Person) isVotingEligible() bool {
-  if (person.age >= 18) {
+  if (person.Age >= 18) {
     return true
   } else {
     return false
@@ -23,18 +24,18 @@ func (person Person) isVotingEligible() bool {
 }
 
 func (person Person) getFullName() string {
-  return fmt.Sprintf("%v %v", person.firstName, person.lastName)
+  return fmt.Sprintf("%v %v", person.FirstName, person.LastName)
 }
 
 func (person *Person) setFirstName(firstName string) {
-  person.firstName = firstName
+  person.FirstName = firstName
 }
 
 func (person *Person) setLastName(lastName string) {
-  person.lastName = lastName
+  person.LastName = lastName
 }
 func (person *Person) setAge(age int) {
-  person.age = age
+  person.Age = age
 }
 
 func main() {
@@ -50,4 +51,11 @@ func main() {
   fmt.Println(john)
   fmt.Println(john.getFullName())
   fmt.Println(john.isVotingEligible())
+
+  serialised, err := json.Marshal(john)
+  if err != nil {
+    fmt.Println("error occured while serializing john:", err)
+  } else {
+    fmt.Println(string(serialised))
+  }
 }
