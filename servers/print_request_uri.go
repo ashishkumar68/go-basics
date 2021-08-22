@@ -1,9 +1,9 @@
 package main
 
 import (
+  "bufio"
   "fmt"
   "net"
-  "bufio"
   "strings"
 )
 
@@ -16,11 +16,11 @@ func main() {
   fmt.Println("Listening on port:", 8080)
   for {
     conn, err := ln.Accept()
-    if (err != nil) {
+    defer conn.Close()
+    if err != nil {
       fmt.Println("count not accept connection, breaking out..")
       break
     }
-    defer conn.Close()
     go handleConnection(conn)
   }
 }
@@ -41,7 +41,7 @@ func request(conn net.Conn) string {
     if i == 0 {
       endpoint = strings.Fields(line)[1]
     }
-    if (line == "") {
+    if line == "" {
       break
     }
     i++

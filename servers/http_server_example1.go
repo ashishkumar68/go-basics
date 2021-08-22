@@ -2,16 +2,17 @@ package main
 
 import (
   "fmt"
+  "log"
   "net/http"
 )
 
 type hotdog int
 
 func (val hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintln(w, "This is a test example of handler")
+  log.Fatalln(fmt.Fprintln(w, "This is a test example of handler"))
 }
 
 func main() {
   var val hotdog
-  http.ListenAndServe(":8080", val)
+  log.Fatalln(http.ListenAndServe(":8080", val))
 }
