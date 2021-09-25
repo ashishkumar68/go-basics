@@ -7,9 +7,9 @@ import (
   "time"
 )
 
-var wg sync.WaitGroup
 // run the program with -race flag to enable the race condition detector.
 func main() {
+  var wg sync.WaitGroup
   sharedCounter := 0
   goroutines := 100
   fmt.Println("The number of goroutines before forloop", runtime.NumGoroutine())
